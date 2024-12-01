@@ -6,9 +6,11 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: #[ "main" ]
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches: #[ "ci" ]
+      - ci
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -27,6 +29,6 @@ jobs:
 
       - name: Run markdown lint
         run: |
-          npm install remark-preset-lint-consistent
+          npm install remark-cli remark-preset-lint-consistent
           npx remark . --use remark-preset-lint-consistent --frail
           
