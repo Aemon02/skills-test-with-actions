@@ -8,9 +8,11 @@ on:
   push:
     branches: #[ "main" ]
       - main
+      - ci
   pull_request:
     branches: #[ "ci" ]
       - ci
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
